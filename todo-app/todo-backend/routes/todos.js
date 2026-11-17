@@ -17,10 +17,10 @@ router.post('/', async (req, res) => {
     done: false
   })
 
-  await redis.set(
-    "added_todos", 
-    parseInt(await redis.get("added_todos")) + 1
-  );
+  const addedTodosValue = await redis.get("added_todos");
+  const addedTodosCounter = Number(addedTodosValue) || 0;
+
+  await redis.set("added_todos", addedTodosCounter + 1);
 
   res.send(todo);
 });
