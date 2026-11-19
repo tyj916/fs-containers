@@ -7,7 +7,7 @@ services:
     volumes:
       - ./todo-frontend:/usr/src/app
     environment:
-      - VITE_BACKEND_URL=http://localhost:8080/api/
+      - VITE_BACKEND_URL=/api
     container_name: hello-front-dev
   nginx:
     image: nginx:1.29
