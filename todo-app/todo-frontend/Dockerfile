@@ -2,6 +2,8 @@ FROM node:24 AS build-stage
 
 WORKDIR /usr/src/app
 
+ENV VITE_BACKEND_URL=/api
+
 COPY . .
 
 RUN npm ci
